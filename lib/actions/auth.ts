@@ -8,6 +8,8 @@ import { eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import ratelimit from "../ratelimit";
 import { redirect } from "next/navigation";
+import { workflowClient } from "../workflow";
+import config from "../config";
 //cette page permet la configuration des fonctions d'inscription et de connexion apres inscription
 
 //fonction qui permet a l'utilisateur de se connecter avec ses identifiants
@@ -63,7 +65,15 @@ export const signUp = async (params: AuthCredentials) => {
             password: hashedPassword,
             universityId,
             universityCard
-        })
+        });
+
+        await workflowClient.trigger({
+            url: `${config.env.prodApiEndpoint}/api/workflow/onboarding`,
+            body: {
+                email,
+                fullName,
+            }
+        });
         await signInWithCredentials({email,password});
        return {success: true};
     } catch(error){
