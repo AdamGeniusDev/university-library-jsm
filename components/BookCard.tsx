@@ -4,9 +4,9 @@ import BookCover from './BookCover'
 import { cn } from '@/lib/utils'
 import Image from 'next/image'
 
-const BookCard = ({id,title,genre,color,cover,isLoadedBook = false}: Book) => <li className={cn(isLoadedBook && 'xs:w-52 w-full')}>
-    <Link href={`/book/${id}`} className={cn(isLoadedBook && 'w-full flex flex-col items-center')}>
-        <BookCover coverColor={color} coverImage={cover}/>
+const BookCard = ({id,title,genre,coverColor,coverUrl,isLoadedBook = false}: Book) => <li className={cn(isLoadedBook && 'xs:w-52 w-full')}>
+    <Link href={`/books/${id}`} className={cn(isLoadedBook && 'w-full flex flex-col items-center')}>
+        <BookCover coverColor={coverColor} coverImage={coverUrl}/>
 
         <div className={cn('mt-4', !isLoadedBook && 'xs:max-w-40 max-w-28')}>
             <p className="book-title">{title}</p>

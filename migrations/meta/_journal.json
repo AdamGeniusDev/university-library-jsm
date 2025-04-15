@@ -8,6 +8,20 @@
       "when": 1743960208996,
       "tag": "0000_easy_prism",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1744656621867,
+      "tag": "0001_sweet_firedrake",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1744735880456,
+      "tag": "0002_tan_radioactive_man",
+      "breakpoints": true
     }
   ]
 }
